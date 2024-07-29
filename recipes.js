@@ -11,7 +11,15 @@ return recipes;
 }
 
 // GET A RECIPE BY ID
-export async function getRecipeByID(id) {}
+export async function getRecipeByID(requestId) {
+const foodID = recipes.find(({ id }) => id === requestId);
+
+if (foodID) {
+    return foodID;
+  }
+
+  throw new Error(`No astronaut with ${foodID} found.`);
+}
 
 // CREATE A RECIPE
 export async function createRecipe(newRecipe) {}

@@ -19,18 +19,32 @@ app.get('/api/recipes',async (req,res) =>{
 try{
   //Fetching Data using the helper Function
   const recipes = await getRecipes()
-  res.status.json(200)({
-    Success : True ,
+  res.status(200).json({
+    Success : true ,
     Payload : recipes});
   }catch (error){
-      res.status.json(400)({
+      res.status(400).json({
         Sucess : false,
         Payload :null
       })
     }
   })
 
-
+  //Included the endpoint /:id to access idS?
+  app.get('/api/recipes/:id',async (req,res) =>{
+    try{
+      //Fetching Data using the helper Function
+      const recipesID = await getRecipeByID(req.params.id); // Get the ID from the request parameters and pass it to the function
+      res.status(200).json({
+        Success : true ,
+        Payload : recipesID});
+      }catch (error){
+          res.status(400).json({
+            Sucess : false,
+            Payload :error.message
+          });
+        }
+      })
 
 
 
