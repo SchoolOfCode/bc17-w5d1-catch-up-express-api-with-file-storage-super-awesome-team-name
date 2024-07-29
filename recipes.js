@@ -22,7 +22,12 @@ if (foodID) {
 }
 
 // CREATE A RECIPE
-export async function createRecipe(newRecipe) {}
+export async function createRecipe(newRecipe) {
+    recipes.push(newRecipe);
+    return newRecipe 
+
+
+}
 
 // UPDATE A RECIPE BY ID
 export async function updateRecipeByID(id, updatedRecipe) {}

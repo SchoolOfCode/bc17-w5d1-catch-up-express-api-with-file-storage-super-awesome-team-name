@@ -47,6 +47,27 @@ try{
       })
 
 
+    //PostHandler for adding New recipie
+
+    app.post('/api/recipes',async (req,res)=>{
+    try{
+      const addedrecipe = await createRecipe(req.body);
+      res.status(200).json({
+        success : true ,
+        Payload : addedrecipe
+      });
+    }catch (error){
+        res.status(400).json({
+          success : false,
+          Payload :error.message
+        })
+      }
+
+    }
+   
+  )
+
+
 
 // //app.get('/astronauts', async (req, res) => {
 //   try {
