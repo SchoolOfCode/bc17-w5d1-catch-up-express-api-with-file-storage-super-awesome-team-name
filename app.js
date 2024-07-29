@@ -67,6 +67,43 @@ try{
    
   )
 
+  //Patch handler for updating by ID
+
+app.patch('/api/recipes/:id', async(req,res)=>
+
+  const id =  req.params.id;
+  const ActiveID = getRecipeByID(id);{
+  try{
+    res.status(200).json({
+      sucess : true ,
+      Payload : ActiveID
+    });
+  } catch (error){
+    res.status(400).json({
+      sucess :false,
+      Payload : error.message
+    })
+  }
+
+}
+
+
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // //app.get('/astronauts', async (req, res) => {
